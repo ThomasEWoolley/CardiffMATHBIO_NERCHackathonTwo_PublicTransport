@@ -1,0 +1,18 @@
+library(shiny)
+library(shinyMatrix)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(reshape2)
+library(DT)
+library(rgdal)
+library(raster)
+library(maptools)
+library(rgeos)
+library(tools)
+
+source("ui.R")
+source("server.R")
+source("src.R")
+
+shinyApp(ui = ui, server = server)

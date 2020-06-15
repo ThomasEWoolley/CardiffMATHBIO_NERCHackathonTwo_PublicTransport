@@ -7,12 +7,9 @@ clear
 
 
 Width = 2.7;
-Length = 15;
+Length = 26;
 
 radius = 2;
-
-w = linspace(0,Width,100);
-l = linspace(0,Length,100);
 
 first_x_node = 0;
 second_x_node = (sqrt(2)/2)*radius;
