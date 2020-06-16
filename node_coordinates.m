@@ -138,3 +138,85 @@ plot([0,20.4],[0,0],'-k','linewidth',2)
 xlabel("$x$",'Interpreter','latex')
 ylabel("$y$",'Interpreter','latex')
 xlim([0 20.5])
+
+
+
+%algorithm to find max capicity of the train
+
+
+ max_num_of_seats = 76;
+
+ accepted_seats = [];
+
+ radius = 1;
+
+for i = 1:max_num_of_seats
+
+    accepted_seats(i) = i;
+
+end
+
+
+ for i = 1:numel(accepted_seats)
+
+     num_to_remove = [];
+
+     if i <= numel(accepted_seats)
+
+         %go through each accepted node and determine if too close
+
+         for m = accepted_seats(i):accepted_seats(end)
+
+             fixed_seat = seat_locations(accepted_seats(i),:);
+             trial_seat = seat_locations(m,:);
+
+             %if too close then a seat number to list
+
+             if (norm ([fixed_seat(1),fixed_seat(2)] - [trial_seat(1),trial_seat(2)] ) < radius && fixed_seat(3) ~= trial_seat(3))
+
+
+                 num_to_remove = [num_to_remove, m];
+
+             end
+
+         end
+
+
+         %remove the nodes too close from the accepted list
+
+         for j = 1:numel(accepted_seats)
+             for k = 1:numel(num_to_remove)
+
+                 if j  <= numel(accepted_seats)
+
+                     if accepted_seats(j) == num_to_remove(k)
+
+                         accepted_seats = accepted_seats(accepted_seats~=num_to_remove(k));
+
+                     end
+                 end
+             end
+         end
+
+
+     end
+
+ end
+
+
+carriage_capacity = (length(accepted_seats)/max_num_of_seats)*100
+
+
+figure()
+title([ "$\rho = 1$ \quad     No. of nodes =  ", num2str(length(accepted_seats)) ] ,'Interpreter','latex')
+hold on
+for i = 1:numel(accepted_seats)
+   scatter(seat_locations(accepted_seats(i),1),seat_locations(accepted_seats(i),2),500,'.k' )
+end
+plot([0,0],[0,2.82],'-k','linewidth',2)
+plot([20.4,20.4],[0,2.82],'-k','linewidth',2)
+plot([0,20.4],[2.82,2.82],'-k','linewidth',2)
+plot([0,20.4],[0,0],'-k','linewidth',2)
+xlabel("$x$",'Interpreter','latex')
+ylabel("$y$",'Interpreter','latex')
+xlim([0 20.5])
