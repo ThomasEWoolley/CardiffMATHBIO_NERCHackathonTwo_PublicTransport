@@ -1,14 +1,14 @@
 close all
 clc
 clear 
-plot_setup
+
 
 %carriage coordinates
 
 %composition of matrix: [x_coord,y_coord,seat_no.]
 
 
-seat_locations = zeros(56,3);
+seat_locations = zeros(76,3);
 
 seat_locations(1,:) = [0.4,0.29,1];
 seat_locations(2,:) = [0.4,0.87,2];
@@ -104,32 +104,38 @@ seat_locations(62,:) = [16.528,0.87,62];
 seat_locations(63,:) = [16.528,1.95,63];
 seat_locations(64,:) = [16.528,2.53,64];
 
+seat_locations(65,:) = [17.328,0.29,65];
+seat_locations(66,:) = [17.328,0.87,66];
+seat_locations(67,:) = [17.328,1.95,67];
+seat_locations(68,:) = [17.328,2.53,68];
+
 %back to back seats%
 
-seat_locations(65,:) = [17.344,0.29,65];
-seat_locations(66,:) = [17.344,0.87,66];
-seat_locations(67,:) = [17.344,1.95,67];
-seat_locations(68,:) = [17.344,2.53,68];
+seat_locations(69,:) = [18.144,0.29,69];
+seat_locations(70,:) = [18.144,0.87,70];
+seat_locations(71,:) = [18.144,1.95,71];
+seat_locations(72,:) = [18.144,2.53,72];
 
 %table%
 
-seat_locations(69,:) = [19.164,0.29,69];
-seat_locations(70,:) = [19.164,0.87,70];
-seat_locations(71,:) = [19.164,1.95,71];
-seat_locations(72,:) = [19.164,2.53,72];
+seat_locations(73,:) = [19.964,0.29,73];
+seat_locations(74,:) = [19.964,0.87,74];
+seat_locations(75,:) = [19.964,1.95,75];
+seat_locations(76,:) = [19.964,2.53,76];
 
 
 
 figure()
 title("DMS(B)",'Interpreter','latex')
 hold on
-for i = 1:72
+for i = 1:76
    scatter(seat_locations(i,1),seat_locations(i,2),500,'.k' ) 
 end
 plot([0,0],[0,2.82],'-k','linewidth',2)
-plot([19.74,19.74],[0,2.82],'-k','linewidth',2)
-plot([0,19.74],[2.82,2.82],'-k','linewidth',2)
-plot([0,19.74],[0,0],'-k','linewidth',2)
+plot([20.4,20.4],[0,2.82],'-k','linewidth',2)
+plot([0,20.4],[2.82,2.82],'-k','linewidth',2)
+plot([0,20.4],[0,0],'-k','linewidth',2)
 xlabel("$x$",'Interpreter','latex')
 ylabel("$y$",'Interpreter','latex')
+xlim([0 20.5])
 
