@@ -1,7 +1,7 @@
 close all
 clc
 clear 
-plot_setup
+%plot_setup
 
 %carriage coordinates
 
@@ -118,7 +118,7 @@ seat_locations(70,:) = [19.164,0.87,70];
 seat_locations(71,:) = [19.164,1.95,71];
 seat_locations(72,:) = [19.164,2.53,72];
 
-
+csvwrite('seat_locations.csv',seat_locations)
 
 figure()
 title("DMS(B)",'Interpreter','latex')
