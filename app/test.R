@@ -1,25 +1,26 @@
-setwd("C:/Users/lucy_/covid-recovery/")
-library(png)
-IM = readPNG("floorplan.png")
+heatmapper(nodes, radius,shield,domain_x,domain_y)
 
-PTS = read.table(text="x y
-1 5
-100 5
-20 10", 
-                 header=TRUE)
+seat_locations <- read.csv(file="seat_locations.csv")
+nodes <- cbind(seat_locations$x,seat_locations$y)
+
+theta <- linspace(0,2*pi,100)
+heatmaps <- rep(0,100) #Coords of boundary
+
+for (j in 1:length(nodes[,1])) {
+  x_circle <- radius*cos(theta) + nodes[j,1]
+  y_circle <- radius*sin(theta) + nodes[j,2]
+}
 
 
+xs <- c(rep(3,4),rep(9.5,4),rep(16.5,4),rep(23,4),rep(29.5,4),rep(38.5,4),rep(44.5,4),rep(50.8,4),rep(60,4),rep(66,4),rep(75.5,4),rep(81.5,4),rep(91,4),rep(97.5,4),rep(104,4),rep(111.5,4),rep(118,4),rep(124,4),rep(133,4))
+ys <- rep(c(2.5,6.5,15,18.5),19)#c(rep(2.5,19), rep(6.5,19), rep(15,19), rep(18.5,19))
+seat_locations$xs = xs
+seat_locations$ys = ys
+write.csv(seat_locations,"seat_locations.csv")
+##########################################
 
-plot(NULL, xlim=c(0,135.6), ylim=c(0,21.2), axes=FALSE, xlab="", ylab="")
-rasterImage(IM,0,0,135.6,21.2)
-x <- 3
-y <- 2
-points(y,x, pch=20, col="red")
+#############################
 
-plot(NULL, xlim=c(0,135.6), ylim=c(0,21.2), axes=FALSE, xlab="", ylab="")
-rasterImage(IM,0,0,135.6,21.2)
-xs <- c(3,9.5,16.5,23,29.5,38.5,44.5,50.8,60,66,75.5,81.5,91,97.5,104,111.5,118,124,133)
-ys <- c(rep(2.5,19), rep(6.5,19), rep(15,19), rep(18.5,19))
-xs <- rep(xs,4)
-points(y=ys,x=xs, pch=20, col="red",cex=2)
-
+install.packages("matconv")
+library(matconv)
+mat2r("node_coordinates.m",pathOutR = "node_coordinates.r")

@@ -13,7 +13,8 @@ ui <- fluidPage(
                 ),
     mainPanel(h3("PLOT"),
               textOutput("capacity"),
-              plotOutput("plot")
+              plotOutput("full_capacity"),
+              plotOutput("social_distanced_capacity")
               )
   )
 )

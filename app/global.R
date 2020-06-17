@@ -1,6 +1,5 @@
 library(shiny)
 library(shinyMatrix)
-library(ggplot2)
 library(grid)
 library(gridExtra)
 library(reshape2)
