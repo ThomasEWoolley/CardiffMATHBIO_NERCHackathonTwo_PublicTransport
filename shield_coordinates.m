@@ -124,31 +124,37 @@ seat_locations(75,:) = [19.964,1.95,75];
 seat_locations(76,:) = [19.964,2.53,76];
 
 shield_locations = seat_locations;
-for i = 1:18
+for i = 1:19
     4*i -3:4*i
-    newx = (seat_locations(4*i,1) + seat_locations(4*i + 4,1))/2;
+    newx = (seat_locations(4*i-3,1) + seat_locations(4*i ,1))/2;
    shield_locations(4*i -3:4*i,1) = newx ;
 end
 %Now loop to report as shield endpoints.
-shield_endpoints = zeros(19,4);
-for i = 1:2:18
+shield_endpoints = zeros(36,4);
+for i = 1:19
+    4*i -3:4*i
     tempblock = shield_locations(4*i -3:4*i,:)
-    shield_endpoints(i,1) = tempblock(1,1);
-    shield_endpoints(i+1,1) = tempblock(1,1);
-   shield_endpoints(i,2) = tempblock(1,1);
-   shield_endpoints(i+1,2) = tempblock(1,1);
-   shield_endpoints(i,3) = tempblock(1,2)-0.29;
-      shield_endpoints(i+1,3) = tempblock(3,2)-0.29
-   shield_endpoints(i,4) = tempblock(2,2)+0.29
-      shield_endpoints(i+1,4) = tempblock(4,2)+0.29
+    shield_endpoints(1+2*(i-1),1) = tempblock(1,1);
+    shield_endpoints(2+2*(i-1),1) = tempblock(1,1);
+   shield_endpoints(1+2*(i-1),2) = tempblock(1,1);
+   shield_endpoints(2+2*(i-1),2) = tempblock(1,1);
+   shield_endpoints(1+2*(i-1),3) = tempblock(1,2)-0.29;
+      shield_endpoints(2+2*(i-1),3) = tempblock(3,2)-0.29;
+   shield_endpoints(1+2*(i-1),4) = tempblock(2,2)+0.29;
+      shield_endpoints(2+2*(i-1),4) = tempblock(4,2)+0.29;
     end
 csvwrite('shield_locations.csv',shield_endpoints)
-
-plot([0,0],[0,2.82],'-k','linewidth',2)
-plot([20.4,20.4],[0,2.82],'-k','linewidth',2)
-plot([0,20.4],[2.82,2.82],'-k','linewidth',2)
-plot([0,20.4],[0,0],'-k','linewidth',2)
-xlabel("$x$",'Interpreter','latex')
-ylabel("$y$",'Interpreter','latex')
-xlim([0 20.5])
+clf
+for i = 1:18
+    hold on
+plot([shield_endpoints(i,1),shield_endpoints(i,2)],[shield_endpoints(i,3),shield_endpoints(i,4)],'.k','MarkerSize',10)
+end
+% 
+% plot([0,0],[0,2.82],'-k','linewidth',2)
+% plot([20.4,20.4],[0,2.82],'-k','linewidth',2)
+% plot([0,20.4],[2.82,2.82],'-k','linewidth',2)
+% plot([0,20.4],[0,0],'-k','linewidth',2)
+% xlabel("$x$",'Interpreter','latex')
+% ylabel("$y$",'Interpreter','latex')
+% xlim([0 20.5])
 
