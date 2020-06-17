@@ -3,10 +3,10 @@ domain_x <- 20.4
 domain_y <- 2.82
 
 install.packages("pracma")
-library(pracma)
+
 
 seat_locations <- read.csv(file="seat_locations.csv")
-shield <- read.csv(file="shield_locations.csv")
+shield_locations <- read.csv(file="shield_locations.csv")
 radius <- 2
 heatmaps <- heatmapper(seat_locations,radius,domain_x,domain_y)
 heatmaps <- shielded_heatmapper(seat_locations,shield_locations,radius,domain_x,domain_y)

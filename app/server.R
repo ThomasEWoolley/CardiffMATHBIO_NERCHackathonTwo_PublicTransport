@@ -9,6 +9,7 @@ server <- function(input, output, session) {
   
   shielded_seats <- reactive({
     seat_locations <- read.csv(file="seat_locations.csv")
+    shield_locations <- read.csv(file="shield_locations.csv")
     heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
     seats <- remove_seats_shields(seat_locations,input$SocialDistance,heatmaps)
     return(seats)
@@ -16,6 +17,7 @@ server <- function(input, output, session) {
 
   output$capacity <- renderText({
     seat_locations <- usable_seats()
+
     seats <- shielded_seats()
     cap <- nrow(seat_locations)
     paste("Capacity of 1 train carriage is ", round(100*cap/76), "% with social distancing or ", round(100*nrow(seats)/76), "% with shields")
@@ -52,7 +54,7 @@ server <- function(input, output, session) {
   })
   
   output$shielded_capacity <- renderPlot({
-    shield <- read.csv(file="shield_locations.csv")
+    shield_locations <- read.csv(file="shield_locations.csv")
     seats <- shielded_seats()
     print(seats)
     heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance/2,domain_x,domain_y)
