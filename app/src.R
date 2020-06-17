@@ -92,6 +92,7 @@ heatmapper <- function(seat_locations,radius,domain_x,domain_y) {
 
 shielded_heatmapper <- function(seat_locations,shield,radius,domain_x,domain_y) {
   theta <- seq(0, 2*pi, length.out = 100)
+  heatmaps <- array(numeric(),c(2,100*nrow(seat_locations)))
   for (j in 1:nrow(seat_locations)) {
     shield_interact <- c()
     x_circle <- radius*cos(theta) + seat_locations[j,"x"]
