@@ -7,14 +7,12 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("SocialDistance", h3("Social distancing rule"),
-                  min = 0.5, max = 3, value = 2),
-    sliderInput("HomeWorkers", h3("Percentage of workers home working"),
-                                     min = 0, max = 100, value = 50)
+                  min = 0.5, max = 3, value = 2)
                 ),
-    mainPanel(h3("PLOT"),
-              textOutput("capacity"),
+    mainPanel(textOutput("capacity"),
               plotOutput("full_capacity"),
-              plotOutput("social_distanced_capacity")
+              plotOutput("social_distanced_capacity"),
+              plotOutput("shielded_capacity")
               )
   )
 )
