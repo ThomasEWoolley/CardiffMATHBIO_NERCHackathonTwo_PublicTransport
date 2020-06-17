@@ -124,11 +124,12 @@ seat_locations(75,:) = [19.964,1.95,75];
 seat_locations(76,:) = [19.964,2.53,76];
 
 shield_locations = seat_locations;
-for i = 1:19
+for i = 1:18
     4*i -3:4*i
-    newx = (seat_locations(4*i-3,1) + seat_locations(4*i ,1))/2;
+    newx = (seat_locations(4*i-3,1) + seat_locations(4*i+1 ,1))/2;
    shield_locations(4*i -3:4*i,1) = newx ;
 end
+%%
 %Now loop to report as shield endpoints.
 shield_endpoints = zeros(36,4);
 for i = 1:19
@@ -145,9 +146,13 @@ for i = 1:19
     end
 csvwrite('shield_locations.csv',shield_endpoints)
 clf
-for i = 1:18
+for i = 1:36
     hold on
-plot([shield_endpoints(i,1),shield_endpoints(i,2)],[shield_endpoints(i,3),shield_endpoints(i,4)],'.k','MarkerSize',10)
+plot([shield_endpoints(i,1),shield_endpoints(i,2)],[shield_endpoints(i,3),shield_endpoints(i,4)],'k','MarkerSize',10)
+end
+
+for i = 1:76
+    scatter(seat_locations(i,1),seat_locations(i,2))
 end
 % 
 % plot([0,0],[0,2.82],'-k','linewidth',2)
