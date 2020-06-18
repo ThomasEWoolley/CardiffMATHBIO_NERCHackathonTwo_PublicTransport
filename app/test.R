@@ -18,5 +18,22 @@ ui <- fluidPage(
               plotOutput("shielded_capacity")
     )
   )
-)
+  
+  
+  install.packages("imager")
+  
+  library(imager)
+  
+  
+  file <- system.file('floorplan.png',package='imager')
+  #system.file gives the full path for a file that ships with a R package
+  #if you already have the full path to the file you want to load just run:
+  #im <- load.image("/somedirectory/myfile.png")
+  im <- load.image(file)
+  
+  plot(im) #Parrots!
+  
+  
+  
+png(filename="floorplan.png")
 

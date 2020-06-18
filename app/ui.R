@@ -14,7 +14,7 @@ ui <- fluidPage(
   
   fluidRow(
     column(6,      h1("Trains", align = "center"),
-           img(src="floorplan2.png")
+           img(src="train_floorplan.png", align = "centre", width="750", height="190")
      #     plotOutput("train_diagram")
            )
     
