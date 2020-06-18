@@ -17,8 +17,7 @@ ui <- fluidPage(
   ),
   
   fluidRow(
-    column(12, textOutput("capacity"),),
-  
+    column(12, textOutput("capacity"))
   ),
   
   fluidRow(
