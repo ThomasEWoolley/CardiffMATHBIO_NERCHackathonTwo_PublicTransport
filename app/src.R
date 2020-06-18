@@ -179,8 +179,14 @@ shield_locations_to_use <- function(shield_length,num_of_shields,shield_location
     }
     
   }
+  if (num_of_shields == 0) {
+    shield_locations[1:num_of_shields,] <- 0
+    shield_locations[1:num_of_shields,]
+  }
+  else {
+    shield_locations[1:num_of_shields,]
+  }
   
-  shield_locations[1:num_of_shields,]
 }
 
 

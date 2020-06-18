@@ -67,6 +67,7 @@ server <- function(input, output, session) {
     cap <- nrow(seat_locations)
     pass_dist <- nrow(seat_locations)
     pass_shield <- nrow(seats)
+    pass <- 1:76
     plot(pass, emission_per_pass_train(pass),type="l", xlim=c(0,80), ylim=c(0,2200),
          xlab="Number of passengers",ylab=TeX("Emissions per passenger (km$^{-1}g$)"),lwd=3)
     abline(h=130.4,lwd=2,col="red",lty="dashed")

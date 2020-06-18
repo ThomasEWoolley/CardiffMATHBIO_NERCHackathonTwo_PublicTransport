@@ -5,6 +5,8 @@ library(reshape2)
 library(png)
 library(tools)
 library(pracma)
+library(latex2exp)
+
 
 
 setwd("C:/Users/lucy_/covid-recovery/app")
