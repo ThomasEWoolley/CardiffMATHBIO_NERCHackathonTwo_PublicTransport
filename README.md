@@ -68,12 +68,9 @@ The GUI is published <a href="https://lucyhenley.shinyapps.io/CardiffMATHBIO_NER
 ---
 
 ## Shielding
-Many industries have taken to the use of plastic barriers, or 'shields', which can ease the effect of social distancing by placing a physical barrier between people to prevent transmission of disease. This can be applied to public transport, in order to maximise the capacity of public transport.
+Many industries have taken to the use of plastic barriers, or 'shields', which can ease the effect of social distancing by placing a physical barrier between people to prevent transmission of disease. This can be applied to public transport, in order to maximise the capacity of public transport and ensure that passengers feel safe whilst travelling.
 
 We define some basic shielding patterns in the app, and include the effect of shields 'blocking' transmission of disease to increase the number of people who can safely use public transport. A possible side effect is that we can demonstrate multiple shielding patterns which achieve the same capacity but use different quantities of shielding material. As most shielding is made of plastic, reducing the volume of plastic required has additional benefits in reducing pollution.
-
-
-ALSO MAKE PEOPLE FEEL SAFE 
 
 ---
 
