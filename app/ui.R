@@ -46,7 +46,8 @@ ui <- fluidPage(
   
   fluidRow(
     
-    column(6, h3("Emissions per passenger", align = "center")),
+    column(6, h3("Emissions per passenger", align = "center"),
+           plotOutput("trainemissions")),
     
     column(6, h3("Emissions per passenger", align = "center"))
   )

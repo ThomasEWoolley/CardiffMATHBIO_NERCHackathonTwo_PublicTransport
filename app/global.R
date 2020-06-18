@@ -9,6 +9,7 @@ library(pracma)
 
 setwd("C:/Users/lucy_/covid-recovery/app")
 
+
 seat_locations <- read.csv(file="seat_locations.csv")
 shield_locations <- read.csv(file="shield_locations.csv")
 

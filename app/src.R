@@ -122,6 +122,15 @@ shielded_heatmapper <- function(seat_locations,shield,radius,domain_x,domain_y) 
   heatmaps
 }
 
+emission_per_pass_train <- function(pass_no) { 
+  total_train_150_emissions <- 2152
+  total_train_150_emissions/pass_no
+}
+
+emission_per_pass_bus <- function(pass_no) { 
+  total_bus_emissions <- 1030.62
+  total_bus_emissions/pass_no
+}
 
 
 capacity <- function(width,length,radius) {
