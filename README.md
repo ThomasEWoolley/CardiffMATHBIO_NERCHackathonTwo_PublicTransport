@@ -36,7 +36,10 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 ## The GUI
 
 Link to GUI in shiny apps
+
 Gif of changing sliders in GUI? 
+
+---
 
 [![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
 
@@ -47,15 +50,10 @@ Gif of changing sliders in GUI?
 > GIF Tools
 
 - Use <a href="http://recordit.co/" target="_blank">**Recordit**</a> to create quicks screencasts of your desktop and export them as `GIF`s.
-- For terminal sessions, there's <a href="https://github.com/chjj/ttystudio" target="_blank">**ttystudio**</a> which also supports exporting `GIF`s.
 
 **Recordit**
 
 ![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
-
-**ttystudio**
-
-![ttystudio GIF](https://raw.githubusercontent.com/chjj/ttystudio/master/img/example.gif)
 
 
 ## Team
