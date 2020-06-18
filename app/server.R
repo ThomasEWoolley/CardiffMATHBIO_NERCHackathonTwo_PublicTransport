@@ -33,7 +33,7 @@ server <- function(input, output, session) {
    #   par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
-      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(0, 1, 0,0.1))
       points(seat_sd[j,"x"],seat_sd[j,"y"],pch=19)
     }
     seats <- shielded_seats()
@@ -45,7 +45,7 @@ server <- function(input, output, session) {
     #  par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
-      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(0, 1, 0,0.1))
       points(seats$x[seats$n==j],seats$y[seats$n==j],pch=19)
     }
     lines(x_box,y_box)

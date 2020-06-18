@@ -7,11 +7,10 @@ ui <- fluidPage(
     
     column(3,      sliderInput("NumberofShields", h3("Number of shields", align = "center"),
                                min = 0, max = 36, value = 1,width='100%')),
-    column(3,      sliderInput("ShieldLength", h3("Length of shield", align = "center"),
+    column(3,      sliderInput("ShieldLength", h3("Length of shield (m)", align = "center"),
                                min = 0, max = 1.16, value =1.16,width='100%')),
-    
     column(3,      sliderInput("SocialDistance", h3("Social distancing rule (m)", align = "center"),
-                               min = 0.5, max = 3, value = 2,width='100%'))
+                               min = 1, max = 2, value = 2,width='100%'))
 
     
   ),
