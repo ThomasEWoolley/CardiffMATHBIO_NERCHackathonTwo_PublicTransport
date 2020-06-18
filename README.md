@@ -7,7 +7,6 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 ## Table of Contents
 
-- [Goal](#goal)
 - [Introduction](#introduction)
 - [Background](#background)
 - [Transport Capacity](#transport-capacity)
