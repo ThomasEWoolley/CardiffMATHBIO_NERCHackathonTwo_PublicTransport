@@ -26,9 +26,6 @@ server <- function(input, output, session) {
     heatmaps <- heatmapper(seat_locations,input$SocialDistance/2,domain_x,domain_y)
     
     plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
-    
-    #   IM = readPNG("floorplan.png")
-    #rasterImage(IM,0,0,135.6,21.2)
     for (j in 1:nrow(seat_locations)) {
       par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
@@ -53,7 +50,7 @@ server <- function(input, output, session) {
   
   output$shielded_capacity <- renderPlot({
     seats <- shielded_seats()
-    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance/2,domain_x,domain_y)
+    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
     plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
     for (j in seats$n) {
       par(fig=c(0,1,0,1))
