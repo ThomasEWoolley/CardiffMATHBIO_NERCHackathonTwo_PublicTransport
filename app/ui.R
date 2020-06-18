@@ -10,12 +10,8 @@ ui <- fluidPage(
                                min = 1, max = 36, value = 0,width='100%')),
     column(3,      sliderInput("ShieldLength", h3("Length of shield", align = "center"),
                                min = 0, max = 1.16, value =1.16,width='100%')),
+    
     column(3,      sliderInput("SocialDistance", h3("Social distancing rule (m)", align = "center"),
-                               min = 0.5, max = 3, value = 2,width='100%')),
-    
-    column(6,      h1("Write some instructions in here", align = "center")),
-    
-    column(6,      sliderInput("SocialDistance", h3("Social distancing rule (m)", align = "center"),
                                min = 0.5, max = 3, value = 2,width='100%'))
 
     
@@ -24,8 +20,7 @@ ui <- fluidPage(
   
   fluidRow(
     column(6,      h1("Trains", align = "center"),
-           img(src="floorplan2.png")
-     #     plotOutput("train_diagram")
+           img(src="train_floorplan.png")
            )
     
     
