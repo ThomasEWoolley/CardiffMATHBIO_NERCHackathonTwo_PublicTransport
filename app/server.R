@@ -43,6 +43,18 @@ server <- function(input, output, session) {
     
   })
   
+  output$trainemissions <- renderPlot({
+    
+    plot(pass, emission_per_pass_train(pass),type="l", xlim=c(0,80), ylim=c(0,2200),
+         xlab="Number of passengers",ylab=TeX("Emissions per passenger (km$^{-1}g$)"),lwd=3)
+    abline(h=130.4,lwd=2,col="red",lty="dashed")
+    abline(h=215.3,lwd=2,col="blue",lty="dashed")
+    points(pass_dist,emission_per_pass_train(pass_dist),pch=18,col="chartreuse4",cex=3)
+    points(pass_shield,emission_per_pass_train(pass_shield),pch=18,col="darkorchid",cex=3)
+    legend("topright",c("Train","Small car","Large car","Capacity with distancing","Capacity with shielding"),lwd=c(3,2,2,0,0), lty=c(1,5,5,0,0), pch=c(NA,NA,NA,18,18),col=c("black","red","blue","chartreuse4","darkorchid"))
+    
+  })
+  
   output$social_distanced_capacity <- renderPlot({
     
     seat_locations <- usable_seats()

@@ -63,12 +63,17 @@ The app uses a Graphical User Interface (GUI) to allow easily manipulation of th
 
 Additionally, graphics are included which demonstrate the emissions per person, dependent on the number of passengers who can fit safely into the carriage. We also plot the emissions per passenger of small and large cars, so that we can identify the exact number of passengers requires per carriage to make public transport a lower-emission method of travel.
 
+The GUI is published <a href="https://lucyhenley.shinyapps.io/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/" target="_blank">**here**</a>. 
+
 ---
 
 ## Shielding
 Many industries have taken to the use of plastic barriers, or 'shields', which can ease the effect of social distancing by placing a physical barrier between people to prevent transmission of disease. This can be applied to public transport, in order to maximise the capacity of public transport.
 
 We define some basic shielding patterns in the app, and include the effect of shields 'blocking' transmission of disease to increase the number of people who can safely use public transport. A possible side effect is that we can demonstrate multiple shielding patterns which achieve the same capacity but use different quantities of shielding material. As most shielding is made of plastic, reducing the volume of plastic required has additional benefits in reducing pollution.
+
+
+ALSO MAKE PEOPLE FEEL SAFE 
 
 ---
 
@@ -94,6 +99,7 @@ We assume that all passengers who cannot fit onto a train would instead choose t
 - We assume that passengers must be seated on the bus or train, and so are restricted to being located in the seat locations.
 
 ---
+
 
 ## Team
 
