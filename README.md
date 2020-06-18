@@ -75,6 +75,9 @@ Many industries have taken to the use of plastic barriers, or 'shields', which c
 
 We define some basic shielding patterns in the app, and include the effect of shields 'blocking' transmission of disease to increase the number of people who can safely use public transport. A possible side effect is that we can demonstrate multiple shielding patterns which achieve the same capacity but use different quantities of shielding material. As most shielding is made of plastic, reducing the volume of plastic required has additional benefits in reducing pollution.
 
+
+ALSO MAKE PEOPLE FEEL SAFE 
+
 ---
 
 ## Emissions
@@ -111,13 +114,11 @@ Link to GUI in shiny apps
 
 Gif of changing sliders in GUI? 
 
+A GUI is published <a href="https://lucyhenley.shinyapps.io/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/" target="_blank">**here**</a>. The user can input the current social distancing measure and the usable seat locations with and without shielding are displayed. The 
+
+ADD Screenshot
+
 ---
-
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
-
-> Subtitle
-
-- Bullet point
 
 > GIF Tools
 
