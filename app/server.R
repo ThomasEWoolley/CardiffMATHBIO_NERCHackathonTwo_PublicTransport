@@ -1,21 +1,78 @@
 options(shiny.maxRequestSize=2000*1024^2)
 
 server <- function(input, output, session) {
+  
+  usable_seats <- reactive({
+    seat_locations <- remove_seats(seat_locations,input$SocialDistance)
+  })
+  
+  shielded_seats <- reactive({
+    heatmaps <- 1
+    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
+    seats <- remove_seats_shields(seat_locations,input$SocialDistance,heatmaps)
+    return(seats)
+  })
 
   output$capacity <- renderText({
-    cap <- capacity(2.7,26,input$SocialDistance)
-    paste("Capacity of 1 train carriage is ", cap , "/92 = ", round(100*cap/92), "%")
+    seat_locations <- usable_seats()
+    heatmaps <- heatmapper(seat_locations,input$SocialDistance,domain_x,domain_y)
+    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
+    seats <- shielded_seats()
+    cap <- nrow(seat_locations)
+    paste("Capacity of 1 train carriage is ", round(100*cap/76), "% with social distancing or ", round(100*nrow(seats)/76), "% with shields")
   })
 
-  output$plot <- renderPlot({
+  output$full_capacity <- renderPlot({
+    heatmaps <- heatmapper(seat_locations,input$SocialDistance/2,domain_x,domain_y)
     
-    xs <- c(3,9.5,16.5,23,29.5,38.5,44.5,50.8,60,66,75.5,81.5,91,97.5,104,111.5,118,124,133)
-    ys <- c(rep(2.5,19), rep(6.5,19), rep(15,19), rep(18.5,19))
-    xs <- rep(xs,4)
-    plot(NULL, xlim=c(0,135.6), ylim=c(0,21.2), axes=FALSE, xlab="", ylab="")
-    IM = readPNG("floorplan.png")
-    rasterImage(IM,0,0,135.6,21.2)
-    points(y=ys,x=xs, pch=15, col="red",cex=3)
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    for (j in 1:nrow(seat_locations)) {
+      par(fig=c(0,1,0,1))
+      idx1 <- 1+100*(j-1)
+      idx2 <- 100*(j-1) + 100
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
+      points(seat_locations[j,"x"],seat_locations[j,"y"],pch=19)
+    }
   })
+  
+  output$train_diagram <- renderPlot({
+    
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    IM = readPNG("floorplan2.png")
+    rasterImage(IM,0,0,135.6,21.2)
+    
+  })
+  
+  output$social_distanced_capacity <- renderPlot({
+    
+    seat_locations <- usable_seats()
+    heatmaps <- heatmapper(seat_locations,input$SocialDistance/2,domain_x,domain_y)
+    par(mar = c(0, 0, 0, 0))
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    for (j in 1:nrow(seat_locations)) {
+      par(fig=c(0,1,0,1))
+      idx1 <- 1+100*(j-1)
+      idx2 <- 100*(j-1) + 100
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
+      points(seat_locations[j,"x"],seat_locations[j,"y"],pch=19)
+    }
+    lines(x_box,y_box)
+  }, height=75)
+  
+  output$shielded_capacity <- renderPlot({
+    seats <- shielded_seats()
+    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance/2,domain_x,domain_y)
+    par(mar = c(0, 0, 0, 0))
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    for (j in seats$n) {
+      par(fig=c(0,1,0,1))
+      idx1 <- 1+100*(j-1)
+      idx2 <- 100*(j-1) + 100
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
+      points(seats$x[seats$n==j],seats$y[seats$n==j],pch=19)
+    }
+    lines(x_box,y_box)
+  }, height=75)
+  
   
 }
