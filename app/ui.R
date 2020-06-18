@@ -10,7 +10,7 @@ ui <- fluidPage(
                   min = 0.5, max = 3, value = 2)
                 ),
     mainPanel(textOutput("capacity"),
-              plotOutput("full_capacity"),
+             # plotOutput("full_capacity"),
               plotOutput("social_distanced_capacity"),
               plotOutput("shielded_capacity")
               )
