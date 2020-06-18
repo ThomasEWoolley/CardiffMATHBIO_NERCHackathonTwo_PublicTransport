@@ -21,27 +21,19 @@ ui <- fluidPage(
   ),
   
   fluidRow(
+    column(6,
+            plotOutput("subplots") )
+           ,
     
-    column(6, h3("Usable train seats", align = "center", width = '100%'),
-           wellPanel( plotOutput("social_distanced_capacity") )
-           ),
-    
-    column(6, h3("Usable train seats with shielding", align = "center", width = '100%'),
-           plotOutput("shielded_capacity"))
-  ),
-  
-  fluidRow(
-    column(4),
-    column(4, h3("Emissions per passenger", align = "center", width='50%'),
+    column(4,
            plotOutput("trainemissions"))
-    
-  ),
-  
-  
-  fluidRow(
-    column(12,      h1("Train plan", align = "center"),
-           img(src="train_floorplan.png",width="750", height="190")
-    )
   )
+  
+  
+ # fluidRow(
+#    column(6,      h1("Train plan", align = "center"),
+#           img(src="train_floorplan.png",width="750", height="190")
+ #   )
+ # )
     
 )

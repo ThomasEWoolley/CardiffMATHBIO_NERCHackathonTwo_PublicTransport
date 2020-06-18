@@ -25,23 +25,24 @@ server <- function(input, output, session) {
   })
 
   output$subplots <- renderPlot({
-    heatmaps <- heatmapper(seat_locations,input$SocialDistance/2,domain_x,domain_y)
-    par(mfrow=c(1,2))
-    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
-    for (j in 1:nrow(seat_locations)) {
-      par(fig=c(0,1,0,1))
+    seat_sd <- usable_seats()
+    heatmaps <- heatmapper(seat_sd,input$SocialDistance/2,domain_x,domain_y)
+    par(mfrow=c(2,1))
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, main="Available seats with social distancing measures", xlab="", ylab="")
+    for (j in 1:nrow(seat_sd)) {
+   #   par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
       polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
-      points(seat_locations[j,"x"],seat_locations[j,"y"],pch=19)
+      points(seat_sd[j,"x"],seat_sd[j,"y"],pch=19)
     }
     seats <- shielded_seats()
     shield_loc <- shield_locations_to_use(input$ShieldLength,input$NumberofShields,shield_locations)
     heatmaps <- shielded_heatmapper(seat_locations,shield_loc,input$SocialDistance/2,domain_x,domain_y)
-    par(mar = c(0, 0, 0, 0))
-    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    #par(mar = c(0, 0, 0, 0))
+    p2 <- plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, main="Available seats with social distancing measures and shielding", xlab="", ylab="")
     for (j in seats$n) {
-      par(fig=c(0,1,0,1))
+    #  par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
       polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
@@ -68,7 +69,7 @@ server <- function(input, output, session) {
     pass_dist <- nrow(seat_locations)
     pass_shield <- nrow(seats)
     pass <- 1:76
-    plot(pass, emission_per_pass_train(pass),type="l", xlim=c(0,80), ylim=c(0,2200),
+    plot(pass, emission_per_pass_train(pass),type="l", xlim=c(0,80), ylim=c(0,2200), main="Emissions per passenger",
          xlab="Number of passengers",ylab=TeX("Emissions per passenger (km$^{-1}g$)"),lwd=3)
     abline(h=130.4,lwd=2,col="red",lty="dashed")
     abline(h=215.3,lwd=2,col="blue",lty="dashed")

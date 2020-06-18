@@ -9,7 +9,7 @@ library(latex2exp)
 
 
 
-setwd("C:/Users/lucy_/covid-recovery/app")
+#setwd("C:/Users/lucy_/covid-recovery/app")
 
 
 seat_locations <- read.csv(file="seat_locations.csv")
