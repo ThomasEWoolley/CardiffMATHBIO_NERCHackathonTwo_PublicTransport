@@ -6,7 +6,7 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 ## Table of Contents
 
--[Goal](#goal)
+- [Goal](#goal)
 - [Introduction](#introduction)
 - [Background](#background)
 - [Transport Capacity](#transport-capacity)
@@ -18,6 +18,12 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 ---
 ## Goal- Reduce public transport emissions per person by creating a tool that will present an optimal seating arrangement under social distancing.
+![Emissions per passenger](https://github.com/Lucyhenley/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/blob/master/figs/screenshot.png?raw=true)
+*An app was produced which derives the seating capacity of a train under specific conditions.*
+
+![capacity of train](https://github.com/Lucyhenley/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/blob/master/figs/max_capacity.png?raw=true)
+*Under given social distancing conditions, the maximum % passenger capacity of a train.*
+
 ---
 ## Introduction
 During lockdown in Great Britain, usage of all forms of motorised transport fell due to travel restrictions. As the UK eases lockdown measures, however, the use of personal vehicles has increased, whilst use of public transport remains low. If this trend continues, we may expect to see people who previously used public transport choosing to use road travel instead, which will lead to an increase in emissions from travel.
@@ -39,19 +45,7 @@ The project meets the requirements of the hackathon in the following ways:
 
 [Reducing emissions from travelling is a key component for the UK in meeting the Paris Accord, as road transport makes up around 20% of UK greenhouse emissions ](https://www.ons.gov.uk/economy/environmentalaccounts/articles/roadtransportandairemissions/2019-09-16). Encouraging people to choose public transport instead of personal vehicles leads to a reduction in emissions per person, so we need some way of facilitating the usage of public transport to prevent an increase in emissions from travel.
 
-If we assume that the public can be enticed to use public transport, the greatest factor limiting its use becomes the number of people who can safely fit into a carriage under current restriction measures- which we denote by 'transport capacity'.
-
-
-
-1.   	What are the positive and negative aspects of lockdown and recovery measures on meeting Paris and net zero targets? 
- 
-2.   	Using multivariate signals to highlight these impacts and their inter-relationships to inform decision making. 
-
-We are interested in approaches that evaluate how multivariate signals and their interrelationships can be used to highlight the path to recovery. The pandemic is essentially a large unplanned experiment, allowing us to consider the ex-ante/mid-post/ex-post aspects of the effectiveness of the lockdown measures. It further allows us to study the positive and negative aspects of lockdown behaviours and to differentiate between the two. It can also help us to better understand the challenges associated with reaching the 8% target of the Paris Accord and reaching net zero (lockdown restrictions have currently delivered both a 5% reduction in emissions, and a 14% reduction in GDP). Solutions addressing this theme can draw from a variety of data sources including EO, social media and other potential sources. 
-
-During lockdown: less travel, decrease in cars + public transport (google mobility data?) 
-Coming out of lockdown: increase in cars, not much increase in public transport
-Need to optimise the number of people to fit on a bus/train whilst still following social distancing rules and motivate passengers to join
+Assuming there is demand for public transport, the greatest factor limiting its use becomes the number of people who can safely fit into a carriage under current restriction measures- which we denote by 'transport capacity'.
 
 
 ---
@@ -65,10 +59,11 @@ In order to address this problem, we have designed an app which determines the a
 ---
 ## The GUI
 
-Link to GUI in shiny apps
+The app uses a Graphical User Interface (GUI) to allow easily manipulation of the code beneath. There are sliders for the number of social distancing shields used, the length of the shields and the social distancing rule. Given this information, the app reports the number of seats which can be used in the train, and their locations within the train.
 
-Gif of changing sliders in GUI?
+Additionally, graphics are included which demonstrate the emissions per person, dependent on the number of passengers who can fit safely into the carriage. We also plot the emissions per passenger of small and large cars, so that we can identify the exact number of passengers requires per carriage to make public transport a lower-emission method of travel.
 
+The GUI is published <a href="https://lucyhenley.shinyapps.io/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/" target="_blank">**here**</a>. 
 
 ---
 
@@ -89,7 +84,11 @@ To calculate and quantify the effect of capacity of public transport on overall 
 
 Car emission data is taken from measurements of the emissions generated by cars used for commuting, found [ here](http://www.aef.org.uk/downloads/Grams_CO2_transportmodesUK.pdf).
 
-We assume that all passengers who cannot fit onto a train would instead choose to use a car to commute to work, which means that they now contribute the emissions of a car.
+We assume that all passengers who cannot fit onto a train would instead choose to use a car to commute to work, which means that they now contribute the emissions of a car. Based on these assumptions, we can plot the emissions per passenger for a train, a bus, a small car and a large car, and thus effectively denote how many passengers are required on a mode of public transport to make them more efficient with regards to emissions than a method of personal transport.
+
+
+![Emissions per passenger](https://github.com/Lucyhenley/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/blob/master/figs/emissions.png?raw=true)
+*The emissions per person for several modes of transport. At least 20 passengers are needed on a train, and around 10 on a bus, to make it more efficient than each taking their own large car.*
 
 ---
 ## Assumptions
@@ -99,36 +98,7 @@ We assume that all passengers who cannot fit onto a train would instead choose t
 -We assume trains are running at full capacity, and therefore any unfilled seats on a bus or train correspond to a commuter who must drive to work
 - We assume that passengers must be seated on the bus or train, and so are restricted to being located in the seat locations.
 
-
 ---
-
-## Shielding
-
----
-
-## Emissions
-
----
-
-## The GUI
-
-Link to GUI in shiny apps
-
-Gif of changing sliders in GUI? 
-
-A GUI is published <a href="https://lucyhenley.shinyapps.io/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/" target="_blank">**here**</a>. The user can input the current social distancing measure and the usable seat locations with and without shielding are displayed. The 
-
-ADD Screenshot
-
----
-
-> GIF Tools
-
-- Use <a href="http://recordit.co/" target="_blank">**Recordit**</a> to create quicks screencasts of your desktop and export them as `GIF`s.
-
-**Recordit**
-
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
 
 
 ## Team
@@ -140,19 +110,7 @@ The team is comprised of PhD Students from the mathematics department of Cardiff
 | [![FVCproductions](https://avatars1.githubusercontent.com/Lucyhenley)](https://github.com/Lucyhenley)    | [![FVCproductions](https://avatars1.githubusercontent.com/joshwillmoore1)](https://github.com/joshwillmoore1) | [![FVCproductions](https://avatars1.githubusercontent.com/OstlerT)](https://github.com/OstlerT)  |
 | <a href="https://github.com/Lucyhenley" target="_blank">`github.com/Lucyhenley`</a> | <a href="https://github.com/joshwillmoore1" target="_blank">`github.com/joshwillmoore1`</a> | <a href="https://github.com/OstlerT" target="_blank">`github.com/OstlerT`</a> |
 
-> Or Contributors/People
 
-| <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> |
-| :---: |:---:| :---:|
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)    | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)  |
-| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
-
-- You can just grab their GitHub profile image URL
-- You should probably resize their picture using `?s=200` at the end of the image URL.
-
----
-
-## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
