@@ -36,8 +36,10 @@ server <- function(input, output, session) {
   })
   
   output$social_distanced_capacity <- renderPlot({
+    
     seat_locations <- usable_seats()
     heatmaps <- heatmapper(seat_locations,input$SocialDistance/2,domain_x,domain_y)
+    par(mar = c(0, 0, 0, 0))
     plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
     for (j in 1:nrow(seat_locations)) {
       par(fig=c(0,1,0,1))
@@ -46,11 +48,12 @@ server <- function(input, output, session) {
       polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
       points(seat_locations[j,"x"],seat_locations[j,"y"],pch=19)
     }
-  })
+  }, height=75)
   
   output$shielded_capacity <- renderPlot({
     seats <- shielded_seats()
     heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
+    par(mar = c(0, 0, 0, 0))
     plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
     for (j in seats$n) {
       par(fig=c(0,1,0,1))
@@ -59,7 +62,7 @@ server <- function(input, output, session) {
       polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
       points(seats$x[seats$n==j],seats$y[seats$n==j],pch=19)
     }
-  })
+  }, height=75)
   
   
 }

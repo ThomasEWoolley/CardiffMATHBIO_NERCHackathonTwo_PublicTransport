@@ -3,3 +3,20 @@ ys <- rep(c(2.5,6.5,15,18.5),19)#c(rep(2.5,19), rep(6.5,19), rep(15,19), rep(18.
 seat_locations$xs = xs
 seat_locations$ys = ys
 write.csv(seat_locations,"seat_locations.csv")
+
+# Define UI for data upload app ----
+ui <- fluidPage(
+  titlePanel("Capacity of public transport system given social distancing measures"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("SocialDistance", h3("Social distancing rule"),
+                  min = 0.5, max = 3, value = 2)
+    ),
+    mainPanel(textOutput("capacity"),
+              plotOutput("social_distanced_capacity"),
+              plotOutput("shielded_capacity")
+    )
+  )
+)
+
