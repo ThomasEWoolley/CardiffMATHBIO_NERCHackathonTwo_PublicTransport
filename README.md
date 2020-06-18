@@ -2,6 +2,7 @@
 
 This repository is Cardiff University MATHBIO's entry to <a href="https://digitalenvironment.org/home/covid-19-digital-sprint-hackathons/covid-19-hackathon-2-recovery/" target="_blank">**COVID-19 Hackathon 2: Recovery**</a>.
 
+### Goal: Reduce public transport emissions per person by creating a tool that will present an optimal seating arrangement under social distancing.
 ---
 
 ## Table of Contents
@@ -17,7 +18,7 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 
 ---
-## Goal- Reduce public transport emissions per person by creating a tool that will present an optimal seating arrangement under social distancing.
+
 ![Emissions per passenger](https://github.com/Lucyhenley/CardiffMATHBIO_NERCHackathonTwo_PublicTransport/blob/master/figs/screenshot.png?raw=true)
 *An app was produced which derives the seating capacity of a train under specific conditions.*
 
