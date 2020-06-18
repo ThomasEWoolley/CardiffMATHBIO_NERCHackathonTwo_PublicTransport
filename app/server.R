@@ -81,38 +81,25 @@ server <- function(input, output, session) {
       social_distancing <- input$SocialDistance1
     }
     
-    
+    seat_sd <- usable_seats()
     heatmaps <- heatmapper(seat_locations,social_distancing/2,domain_x,domain_y)
-    par(mfrow=c(1,2))
-    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
-    for (j in 1:nrow(seat_locations)) {
-    #  par(fig=c(0,1,0,1))
-#    seat_sd <- usable_seats()
-#    heatmaps <- heatmapper(seat_sd,input$SocialDistance/2,domain_x,domain_y)
- #   par(mfrow=c(2,1))
-  #  plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, main="Available seats with social distancing measures", xlab="", ylab="")
-   # for (j in 1:nrow(seat_sd)) {
-   #   par(fig=c(0,1,0,1))
+    par(mfrow=c(2,1))
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE,main="Available seats with social distancing measures", xlab="", ylab="")
+    heatmaps <- heatmapper(seat_sd,input$SocialDistance/2,domain_x,domain_y)
+      for (j in 1:nrow(seat_sd)) {
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
-      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(0, 1, 0,0.1))
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(0, 0, 1,0.2))
       points(seat_sd[j,"x"],seat_sd[j,"y"],pch=19)
     }
     seats <- shielded_seats()
     shield_loc <- usable_shields()
     heatmaps <- shielded_heatmapper(seat_locations,shield_loc,social_distancing/2,domain_x,domain_y)
-    par(mar = c(0, 0, 0, 0))
-    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
+    plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="",main="Available seats with social distancing measures and shielding", ylab="")
     for (j in seats$n) {
-      par(fig=c(0,1,0,1))
       idx1 <- 1+100*(j-1)
       idx2 <- 100*(j-1) + 100
-      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(1, 0, 0,0.1))
-#    shield_loc <- shield_locations_to_use(input$ShieldLength,input$NumberofShields,shield_locations)
-#    heatmaps <- shielded_heatmapper(seat_locations,shield_loc,input$SocialDistance/2,domain_x,domain_y)
-    #par(mar = c(0, 0, 0, 0))
-#    p2 <- plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, main="Available seats with social distancing measures and shielding", xlab="", ylab="")
-#    for (j in seats$n) {
+      polygon(x=heatmaps[1,idx1:idx2],y=heatmaps[2,idx1:idx2],col=rgb(0, 0, 1,0.2))
     #  par(fig=c(0,1,0,1))
  #     idx1 <- 1+100*(j-1)
  #     idx2 <- 100*(j-1) + 100
