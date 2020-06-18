@@ -175,4 +175,3 @@ shield_locations_to_use <- function(shield_length,num_of_shields){
 }
 
 
-

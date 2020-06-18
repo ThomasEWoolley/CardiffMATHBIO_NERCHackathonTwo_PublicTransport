@@ -13,6 +13,11 @@ ui <- fluidPage(
     column(3,      sliderInput("SocialDistance", h3("Social distancing rule (m)", align = "center"),
                                min = 0.5, max = 3, value = 2,width='100%')),
     
+    column(6,      h1("Write some instructions in here", align = "center")),
+    
+    column(6,      sliderInput("SocialDistance", h3("Social distancing rule (m)", align = "center"),
+                               min = 0.5, max = 3, value = 2,width='100%'))
+
     
 
   ),

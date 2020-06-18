@@ -6,7 +6,8 @@ library(png)
 library(tools)
 library(pracma)
 
-setwd("/Users/joshuamoore/Downloads/CardiffMATHBIO_NERCHackathonTwo_PublicTransport-master/app")
+
+setwd("C:/Users/lucy_/covid-recovery/app")
 
 seat_locations <- read.csv(file="seat_locations.csv")
 shield_locations <- read.csv(file="shield_locations.csv")
