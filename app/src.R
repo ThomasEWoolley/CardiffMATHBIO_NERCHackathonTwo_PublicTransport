@@ -169,7 +169,7 @@ capacity <- function(width,length,radius) {
 }
 
 
-shield_locations_to_use <- function(shield_length,num_of_shields){
+shield_locations_to_use <- function(shield_length,num_of_shields,shield_locations){
   for (i in 1:nrow(shield_locations)){
     if (i%%2 == 0){
       shield_locations[i,3] = shield_locations[i,3] + (1.16 - shield_length)
@@ -182,5 +182,57 @@ shield_locations_to_use <- function(shield_length,num_of_shields){
   
   shield_locations[1:num_of_shields,]
 }
+
+#conditions needed to selection
+use_zig_zag_shields <-function(shield_length,num_of_shields,shield_locations){
+  for (i in 1:nrow(shield_locations)){
+    if (i%%2 == 0){
+      shield_locations[i,3] = shield_locations[i,3] + (1.16 - shield_length)
+    }
+    else{
+      shield_locations[i,4] = shield_locations[i,4] - (1.16 - shield_length)
+    }
+
+  }
+  
+  shield_to_plot <- matrix(nrow=num_of_shields, ncol=4)
+
+  
+order_shields <- c(1,4,5,8,9,12,13,16,17,20,21,24,25,28,29,32,33,36)
+
+  for (i in 1:num_of_shields){
+    
+    
+        shield_to_plot[i,1] <- shield_locations[order_shields[i],1] 
+    
+      
+  }
+  for (i in 1:num_of_shields){
+    
+      
+      shield_to_plot[i,2] <- shield_locations[order_shields[i],2] 
+      
+    
+  }
+  
+  for (i in 1:num_of_shields){
+    
+      
+      shield_to_plot[i,3] <- shield_locations[order_shields[i],3] 
+      
+    
+  }
+  
+  for (i in 1:num_of_shields){
+    
+      
+      shield_to_plot[i,4] <- shield_locations[order_shields[i],4] 
+      
+    
+  }
+  shield_to_plot
+
+}
+
 
 
