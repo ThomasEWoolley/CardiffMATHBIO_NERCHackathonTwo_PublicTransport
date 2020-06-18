@@ -7,8 +7,9 @@ server <- function(input, output, session) {
   })
   
   shielded_seats <- reactive({
+    shield_loc <- shield_locations_to_use(input$ShieldLength,input$NumberofShields,shield_locations)
     heatmaps <- 1
-    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
+    heatmaps <- shielded_heatmapper(seat_locations,shield_loc,input$SocialDistance,domain_x,domain_y)
     seats <- remove_seats_shields(seat_locations,input$SocialDistance,heatmaps)
     return(seats)
   })
@@ -16,6 +17,7 @@ server <- function(input, output, session) {
   output$capacity <- renderText({
     seat_locations <- usable_seats()
     heatmaps <- heatmapper(seat_locations,input$SocialDistance,domain_x,domain_y)
+    shield_loc <- shield_locations_to_use(input$ShieldLength,input$NumberofShields,shield_locations)
     heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance,domain_x,domain_y)
     seats <- shielded_seats()
     cap <- nrow(seat_locations)
@@ -73,7 +75,8 @@ server <- function(input, output, session) {
   
   output$shielded_capacity <- renderPlot({
     seats <- shielded_seats()
-    heatmaps <- shielded_heatmapper(seat_locations,shield_locations,input$SocialDistance/2,domain_x,domain_y)
+    shield_loc <- shield_locations_to_use(input$ShieldLength,input$NumberofShields,shield_locations)
+    heatmaps <- shielded_heatmapper(seat_locations,shield_loc,input$SocialDistance/2,domain_x,domain_y)
     par(mar = c(0, 0, 0, 0))
     plot(NULL, xlim=c(0,domain_x), ylim=c(0,domain_y), asp=1, axes=FALSE, xlab="", ylab="")
     for (j in seats$n) {

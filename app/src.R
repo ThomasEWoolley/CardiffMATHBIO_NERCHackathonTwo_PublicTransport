@@ -169,7 +169,7 @@ capacity <- function(width,length,radius) {
 }
 
 
-shield_locations_to_use <- function(shield_length,num_of_shields){
+shield_locations_to_use <- function(shield_length,num_of_shields,shield_locations){
   for (i in 1:nrow(shield_locations)){
     if (i%%2 == 0){
       shield_locations[i,3] = shield_locations[i,3] + (1.16 - shield_length)
