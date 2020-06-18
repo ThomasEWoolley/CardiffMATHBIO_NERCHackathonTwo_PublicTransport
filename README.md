@@ -6,6 +6,7 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 ## Table of Contents
 
+-[Goal](#goal)
 - [Introduction](#introduction)
 - [Background](#background)
 - [Transport Capacity](#transport-capacity)
@@ -16,7 +17,8 @@ This repository is Cardiff University MATHBIO's entry to <a href="https://digita
 
 
 ---
-
+## Goal- Reduce public transport emissions per person by creating a tool that will present an optimal seating arrangement under social distancing.
+---
 ## Introduction
 During lockdown in Great Britain, usage of all forms of motorised transport fell due to travel restrictions. As the UK eases lockdown measures, however, the use of personal vehicles has increased, whilst use of public transport remains low. If this trend continues, we may expect to see people who previously used public transport choosing to use road travel instead, which will lead to an increase in emissions from travel.
 
@@ -26,9 +28,9 @@ The project meets the requirements of the hackathon in the following ways:
 
 - **Specific**- We have assessed one of the potential negative aspects of lockdown and recovery on UK emissions, and therefore on meeting the Paris and net zero targets. We also highlight the impact on the environment using multiple signals, including shield pattern design and social distancing perimeters, in order to guide decision making in public transport design and government policy.
 - **Measurable**- The outcome for any given seating arrangement or shielding pattern is an expected emissions per passenger, in grams of CO2 per person per kilometer. We can therefore quantify the effect our solutions will have on UK emissions.
--**Achievable**- Solutions involve the placement of plastic shielding in appropriate locations or the reduction of the social distancing measure to some value between 1 and 2m. These are both feasible as plastic shielding placement is a common solution to this problem, and social distancing measures are as low as 1m in EU nations such as France.
--**Relevant**- the solution put forward focusses on helping governments and businesses to maximise their use of resources whilst minimising their impact on the environment through reducing emisions, which falls within the NERC remit. The subject is relevant to the impact of recovery measures following lockdown, and the solution achieves its desired goal of suggesting which measures will achieve optimum reductions in emissions.
--**Timebound**- We have explored a number of possible outcomes and achieved the solution desired as set out at the beginning of the task. Further developments could be made to the model, but the developments made are satisfactory for the allocated timeframe.
+- **Achievable**- Solutions involve the placement of plastic shielding in appropriate locations or the reduction of the social distancing measure to some value between 1 and 2m. These are both feasible as plastic shielding placement is a common solution to this problem, and social distancing measures are as low as 1m in EU nations such as France.
+- **Relevant**- the solution put forward focusses on helping governments and businesses to maximise their use of resources whilst minimising their impact on the environment through reducing emisions, which falls within the NERC remit. The subject is relevant to the impact of recovery measures following lockdown, and the solution achieves its desired goal of suggesting which measures will achieve optimum reductions in emissions.
+- **Timebound**- We have explored a number of possible outcomes and achieved the solution desired as set out at the beginning of the task. Further developments could be made to the model, but the developments made are satisfactory for the allocated timeframe.
 
 
 ## Background
